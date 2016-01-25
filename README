@@ -1,0 +1,30 @@
+Create Phoenix/HBase tables
+
+$ $PHOENIX_HOME/bin/psql.py sandbox:2181:/hbase-unsecure create_patient.sql
+$ $PHOENIX_HOME/bin/psql.py sandbox:2181:/hbase-unsecure -t PATIENT MOCK_DATA.csv
+
+When you make a JDBC call from the application, the sample data will be as follows: 
+
+$ node server.js sandbox:2181:/hbase-unsecure
+
+[ { ID: '0001',
+    FIRST_NAME: 'Thomas',
+    LAST_NAME: 'James',
+    EMAIL: 'tjames0@dion.ne.jp',
+    GENDER: 'Male',
+    AGE: '43',
+    LAST_VISIT: '2014-07-29 00:00:00.000',
+    CITY: 'Ashgabat',
+    PROVIDER: 'Crimson',
+    RECORD: 'http://localhost:50070/webhdfs/v1/apps/patient-history/trial.pdf' },
+  { ID: '0002',
+    FIRST_NAME: 'Jonathan',
+    LAST_NAME: 'Cole',
+    EMAIL: 'jcole1@wunderground.com',
+    GENDER: 'Male',
+    AGE: '53',
+    LAST_VISIT: '2013-02-27 00:00:00.000',
+    CITY: 'Uitiuhtuan',
+    PROVIDER: 'Puce',
+    RECORD: 'http://localhost:50070/webhdfs/v1/apps/patient-history/trial.pdf' } ]
+
